@@ -441,7 +441,12 @@ impl View {
         }
 
         if let Err(e) = rename(&tmppath, &*path) {
-            panic!("file error: {}", e);
+            let prefix = "Enter file name: ";
+            self.overlay = Overlay::SavePrompt {
+                cursor_x: prefix.len(),
+                prefix: prefix,
+                data: String::new(),
+            }
         }
     }
 
