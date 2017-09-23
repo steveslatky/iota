@@ -441,7 +441,7 @@ impl View {
         }
 
         if let Err(e) = rename(&tmppath, &*path) {
-            let prefix = "Enter file name: ";
+            let prefix = "Invalid path, Enter file name: ";
             self.overlay = Overlay::SavePrompt {
                 cursor_x: prefix.len(),
                 prefix: prefix,
